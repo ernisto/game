@@ -1,0 +1,46 @@
+{
+  "name": "game",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Packages": { "$path": "Packages" },
+      "Remotes": { "$path": "out/remotes" },
+      "Shared": { "$path": "src/shared" },
+      "Client": { "$path": "src/client",
+        "$className": "Script",
+        "$properties": {
+          "RunContext": "Client",
+          "Source": "for _,module in script:GetDescendants() do\n\tif module:IsA('ModuleScript') then task.spawn(require, module) end\nend"
+        }
+      }
+    },
+    "ServerScriptService": {
+      "Packages": { "$path": "ServerPackages" },
+      "Server": { "$path": "src/server",
+        "$className": "Script",
+        "$properties": {
+          "RunContext": "Server",
+          "Source": "for _,module in script:GetDescendants() do\n\tif module:IsA('ModuleScript') then task.spawn(require, module) end\nend"
+        }
+      }
+    },
+    "ServerStorage": {
+      "Stories": { "$path": "stories" }
+    },
+    "TestService": { "$path": "tests",
+      "Packages": { "$path": "DevPackages" }
+    },
+
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      }
+    },
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    }
+  }
+}

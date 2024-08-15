@@ -1,0 +1,16 @@
+# Project place file
+/*.rbxl
+
+# Lock files
+/*.lock
+
+# Rojo
+sourcemap.json
+
+# Wally
+ServerPackages
+DevPackages
+Packages
+
+# Blink
+out

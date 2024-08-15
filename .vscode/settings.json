@@ -1,0 +1,46 @@
+{
+    "explorer.fileNesting.patterns": {
+        "*.js": "${capture}.*.js, ${capture}.*.ts, ${capture}.js, ${capture}.js.map",
+        "*.ts": "${capture}.*.js, ${capture}.*.ts, ${capture}.js",
+        "*.luau": "${capture}.*.lua, ${capture}.*.luau",
+        "*.lua": "${capture}.*.lua, ${capture}.*.luau",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+        "README.md": "*.md",
+        "init.cmd": "*.cmd",
+        "init.sh": "*.sh",
+        "mantle.yml": "aftman.toml, wally.toml, selene.toml, *.project.json"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "wally.lock": true,
+        "sourcemap.json": true,
+        "ServerPackages": true,
+        "DevPackages": true,
+        "Packages": true,
+        "out": true,
+        ".github": true,
+        ".vscode": true
+    },
+    "hide-files.files": [
+        "wally.lock",
+        "sourcemap.json",
+        "ServerPackages",
+        "DevPackages",
+        "Packages",
+        "out",
+        ".github",
+        ".vscode"
+    ],
+    "yaml.schemas": {
+        "https://mantledeploy.vercel.app/schemas/v0.11.15/schema.json": [ "mantle.yml" ],
+        "https://json.schemastore.org/github-workflow.json": ".github/workflows/deploy.yml"
+    }
+}
