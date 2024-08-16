@@ -8,6 +8,7 @@
       "Remotes": { "$path": "out/remotes" },
       "Shared": { "$path": "src/shared" },
       "Client": { "$path": "src/client",
+        "Remotes": { "$path": "out/remotes/client" },
         "$className": "Script",
         "$properties": {
           "RunContext": "Client",
@@ -18,6 +19,7 @@
     "ServerScriptService": {
       "Packages": { "$path": "ServerPackages" },
       "Server": { "$path": "src/server",
+      "Remotes": { "$path": "out/remotes/server" },
         "$className": "Script",
         "$properties": {
           "RunContext": "Server",
