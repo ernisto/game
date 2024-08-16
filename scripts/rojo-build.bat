@@ -1,0 +1,1 @@
+rojo build game.project.json --output game.rbxl

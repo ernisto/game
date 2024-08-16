@@ -1,0 +1,2 @@
+aftman install
+./wally-install
