@@ -1,2 +1,2 @@
 aftman install
-scripts/wally-install
+call scripts/wally-install

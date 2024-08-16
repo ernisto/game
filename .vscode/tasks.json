@@ -6,7 +6,7 @@
         {
             "label": "wally-install",
             "type": "shell",
-            "command": "./scripts/wally-install",
+            "command": "scripts/wally-install",
             "problemMatcher": {
                 "pattern": {
                     "regexp": "^error: (.*)",
@@ -17,7 +17,7 @@
         {
             "label": "rojo-build",
             "type": "shell",
-            "command": "./scripts/rojo-build",
+            "command": "scripts/rojo-build",
             "problemMatcher": {
                 "pattern": {
                     "regexp": "^error: (.*)",
