@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       # Build the project with rojo
       - name: Build project
-        run: ./scripts/rojo-build
+        run: scripts/rojo-build
       # Deploy the project with mantle
       - name: Deploy project
         run: mantle deploy
