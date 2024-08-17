@@ -29,6 +29,5 @@ target:
           maxPlayerCount: 10
           allowCopying: false
     assets:
-      - assets/images/products/*
-      - assets/images/ui/*
+      - assets/images/**/*.png
       - assets/sounds/*
