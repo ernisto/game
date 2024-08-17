@@ -25,7 +25,6 @@
         "ServerPackages": true,
         "DevPackages": true,
         "Packages": true,
-        "out": true,
         ".github": true,
         ".vscode": true
     },
@@ -35,7 +34,6 @@
         "ServerPackages",
         "DevPackages",
         "Packages",
-        "out",
         ".github",
         ".vscode"
     ],
