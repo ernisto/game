@@ -11,7 +11,7 @@
         "README.md": "*.md",
         "init.cmd": "*.cmd",
         "init.sh": "*.sh",
-        "mantle.yml": "aftman.toml, wally.toml, selene.toml, *.project.json"
+        "mantle.yml": "aftman.toml, wally.toml, selene.toml, stylua.toml, *.project.json"
     },
     "files.exclude": {
         "**/.git": true,
@@ -25,8 +25,8 @@
         "ServerPackages": true,
         "DevPackages": true,
         "Packages": true,
-        ".github": true,
-        ".vscode": true
+        ".vscode": true,
+        ".github": true
     },
     "hide-files.files": [
         "wally.lock",
@@ -34,8 +34,8 @@
         "ServerPackages",
         "DevPackages",
         "Packages",
-        ".github",
-        ".vscode"
+        ".vscode",
+        ".github"
     ],
     "yaml.schemas": {
         "https://mantledeploy.vercel.app/schemas/v0.11.15/schema.json": [ "mantle.yml" ],
