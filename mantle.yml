@@ -30,4 +30,5 @@ target:
           allowCopying: false
     assets:
       - assets/images/**/*.png
-      - assets/sounds/*
+      - assets/sounds/**/*.mp4
+      - assets/sounds/**/*.ogg
