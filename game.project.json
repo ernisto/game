@@ -5,6 +5,7 @@
 
     "ReplicatedStorage": {
       "Packages": { "$path": "Packages" },
+      "Config": { "$path": "config" },
       "Shared": { "$path": "src/shared" },
       "Client": { "$path": "src/client",
         "Remotes": { "$path": "out/remotes/client" },
