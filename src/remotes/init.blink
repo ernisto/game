@@ -1,0 +1,6 @@
+-- these can be ignored if you are using the studio plugin
+option ClientOutput = "../../out/remotes/client/init.luau"
+option ServerOutput = "../../out/remotes/server/init.luau"
+option PromiseLibrary = "ReplicatedStorage.Packages.Promise"
+
+import "./example.blink" as example
