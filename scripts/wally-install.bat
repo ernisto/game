@@ -1,5 +1,5 @@
 wally install
-rojo sourcemap -o sourcemap.json game.project.json
+call scripts/rojo-sourcemap
 wally-package-types --sourcemap sourcemap.json Packages
 wally-package-types --sourcemap sourcemap.json DevPackages
 wally-package-types --sourcemap sourcemap.json ServerPackages
