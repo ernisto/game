@@ -19,7 +19,7 @@
     "ServerScriptService": {
       "Packages": { "$path": "ServerPackages" },
       "Server": { "$path": "src/server",
-      "Remotes": { "$path": "out/remotes/server" },
+        "Remotes": { "$path": "out/remotes/server" },
         "$className": "Script",
         "$properties": {
           "RunContext": "Server",
