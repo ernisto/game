@@ -39,6 +39,11 @@
         "FilteringEnabled": true
       }
     },
+    "HttpService": {
+      "$properties": {
+        "HttpEnabled": false
+      }
+    },
     "SoundService": {
       "$properties": {
         "RespectFilteringEnabled": true
