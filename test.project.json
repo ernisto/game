@@ -1,5 +1,5 @@
 {
-  "name": "game",
+  "name": "test",
   "tree": {
     "$className": "DataModel",
 
@@ -29,6 +29,9 @@
     },
     "ServerStorage": {
       "Stories": { "$path": "stories" }
+    },
+    "TestService": { "$path": "tests",
+      "Packages": { "$path": "DevPackages" }
     },
 
     "Workspace": {
