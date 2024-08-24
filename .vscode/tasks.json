@@ -24,6 +24,17 @@
                     "message": 1
                 }
             }
+        },
+        {
+            "label": "run-tests",
+            "type": "shell",
+            "command": "scripts/run-tests",
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^error: (.*)",
+                    "message": 1
+                }
+            }
         }
     ]
 }
