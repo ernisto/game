@@ -44,6 +44,6 @@
         "https://json.schemastore.org/github-workflow.json": ".github/workflows/deploy.yml"
     },
     "luau-lsp.types.definitionFiles": [
-        "tests/testez.d.lua"
+        "tests/testez.d.luau"
     ],
 }
