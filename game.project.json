@@ -4,8 +4,11 @@
     "$className": "DataModel",
 
     "ReplicatedStorage": {
-      "Packages": { "$path": "Packages" },
       "Config": { "$path": "config" },
+      "Assets": { "$path": "assets",
+        "$ignoreUnknownInstances": true
+      },
+      "Packages": { "$path": "Packages" },
       "Shared": { "$path": "src/shared" },
       "Client": { "$path": "src/client",
         "Remotes": { "$path": "out/remotes/client" },
