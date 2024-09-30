@@ -11,7 +11,7 @@
         "README.md": "*.md",
         "init.cmd": "*.cmd",
         "init.sh": "*.sh",
-        "mantle.yml": "aftman.toml, wally.toml, selene.toml, stylua.toml, *.project.json"
+        "mantle.yml": "*.project.json, testez-companion.toml, wally.toml, aftman.toml, selene.toml, stylua.toml, .luaurc, .darklua.json"
     },
     "files.exclude": {
         "**/.git": true,
