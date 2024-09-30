@@ -1,6 +1,6 @@
 {
     "recommendations": [
-        "jo-project.blink-testing-support",
+        "checkraisefold.blink-vscode",
         "johnnymorganz.luau-lsp",
         "evaera.vscode-rojo",
         "tacheometrist.testez-companion",
