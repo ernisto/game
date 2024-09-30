@@ -26,6 +26,7 @@
         "DevPackages": true,
         "Packages": true,
         "out": true,
+        ".mantle-state.yml": true,
         ".vscode": true,
         ".github": true
     },
