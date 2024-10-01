@@ -14,3 +14,6 @@ Packages
 
 # Blink
 out
+
+# Local Secrets
+.env
