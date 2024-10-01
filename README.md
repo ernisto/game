@@ -1,17 +1,15 @@
 # Setup
 
 ## Download Repository
--# more info: [git cloning an existing repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
-
 When you install [Git](https://git-scm.com/downloads) if already have not,
 run clone this repository with
 ```sh
 git clone https://github.com/ernisto/game
 ```
 
-## Install Dependencies
--# more info: [wally](https://github.com/UpliftGames/wally?tab=readme-ov-file#wally-install---locked)
+learn more: [git cloning an existing repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
 
+## Install Dependencies
 Assuming that you already have [Aftman](https://github.com/LPGhatguy/aftman) installed into your current user,
 install all CLI tools, and run our script to install all wally packages with
 ```sh
@@ -19,9 +17,9 @@ aftman install
 ./scripts/wally-install
 ```
 
-## Configure Mantle Owner
--# more info: [mantle configuration](https://mantledeploy.vercel.app/docs/configuration/reference#owner)
+learn more: [wally](https://github.com/UpliftGames/wally?tab=readme-ov-file#wally-install---locked)
 
+## Configure Mantle Owner
 To mantle publish your place, he must to know what is the owner of the place,
 if will be your personal account, or a roblox group. So we need setting it into `mantle.yml`.
 
@@ -37,22 +35,22 @@ owner:
     groupId: your_group_id
 ```
 
-## Configure Github Environment
--# more info: [using github secrets](https://docs.github.com/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+learn more: [mantle configuration](https://mantledeploy.vercel.app/docs/configuration/reference#owner)
 
+## Configure Github Environment
 So you planning implement a CI/CD workflow, where you will automatically publish
 your place when you push some change, you should configure a environment to be used by github action
 - Publish your repository to [Github](https://github.com)
 - Go to `Settings` > `Secrets and variables` > `Actions`
 - Create the secrets:
     - if you are publishing as a group `MANTLE_OPEN_CLOUD_API_KEY` for your Open Cloud API Key [Creating a Open Cloud API Key](#creating-a-open-cloud-api-key-link)
-    else if you just publishing as a person, `ROBLOSECURITY` for your personal roblox cookie [Getting your ROBLOXSECURITY cookie](#getting-your-robloxsecurity-cookie-link)
+    - else if you just publishing as a person, `ROBLOSECURITY` for your personal roblox cookie [Getting your ROBLOXSECURITY cookie](#getting-your-robloxsecurity-cookie-link)
     - if you are using Amazon AWS to store your `mantle-state.yml`,
     create `MANTLE_AWS_ACCESS_KEY_ID` and `MANTLE_AWS_SECRET_ACCESS_KEY`
 
-## Configure Local Environment
--# more info: [mantle .env files](https://mantledeploy.vercel.app/docs/authentication#dotenv-files)
+learn more: [using github secrets](https://docs.github.com/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
 
+## Configure Local Environment
 If you looking for a local publishment, or you are a external contribuitor,
 is recommended you just create a `.env` file in the root of the project,
 and add the following variables:
@@ -62,11 +60,11 @@ MANTLE_AWS_ACCESS_KEY_ID="{your access key id}"
 MANTLE_AWS_SECRET_ACCESS_KEY="{your secret access key}"
 ```
 
+learn more: [mantle .env files](https://mantledeploy.vercel.app/docs/authentication#dotenv-files)
+
 # Useful infos
 
-## Creating a Open Cloud API Key [link](#creating-a-open-cloud-api-key-link)
--# more info: [roblox open cloud api](https://create.roblox.com/docs/cloud/open-cloud/api-keys) and [mantle authentication](https://mantledeploy.vercel.app/docs/authentication#roblox-open-cloud-api-key)
-
+## Creating a Open Cloud API Key [🔗](#creating-a-open-cloud-api-key-link)
 To mantle be able to publish ur place in your account/group,
 you should to create a Open Cloud API Key to be used by mantle
 
@@ -91,9 +89,9 @@ Mantle will requires the following `Operations` from the determinated `API Syste
 - notifications
     - user.user-notifications:write
 
-## Getting your ROBLOXSECURITY cookie [link](#getting-your-robloxsecurity-cookie-link)
--# more infos: [mantle roblox security](https://mantledeploy.vercel.app/docs/authentication#roblosecurity)
+learn more: [roblox open cloud api](https://create.roblox.com/docs/cloud/open-cloud/api-keys) and [mantle authentication](https://mantledeploy.vercel.app/docs/authentication#roblox-open-cloud-api-key)
 
+## Getting your ROBLOXSECURITY cookie [🔗](#getting-your-robloxsecurity-cookie-link)
 - Navigate to [roblox](https://roblox.com/) in your browser and open the dev tools (right-click and select `Inspect`).
 - Navigate to the `Application` tab, then look for `Cookies` under `Storage` in the left-hand sidebar.
 - Under `Cookies`, select `https://www.roblox.com` then select `.ROBLOSECURITY` from the list of cookies.
@@ -101,3 +99,5 @@ Mantle will requires the following `Operations` from the determinated `API Syste
 
 If there is a logged-in `Roblox Studio` installation, Mantle can automatically extract its `.ROBLOSECURITY`
 cookie and will authenticate requests as the user logged in to Roblox Studio.
+
+learn more: [mantle roblox security](https://mantledeploy.vercel.app/docs/authentication#roblosecurity)
