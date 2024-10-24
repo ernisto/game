@@ -15,6 +15,17 @@
             }
         },
         {
+            "label": "blink-build",
+            "type": "shell",
+            "command": "scripts/rojo-sourcemap",
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^error: (.*)",
+                    "message": 1
+                }
+            }
+        },
+        {
             "label": "rojo-build",
             "type": "shell",
             "command": "scripts/rojo-build",
