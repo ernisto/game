@@ -28,6 +28,12 @@ target:
           serverFill: robloxOptimized
           maxPlayerCount: 10
           allowCopying: false
+    products:
+      aura:
+        name: Blue Aura
+        description: Gives u a blue aura
+        icon: assets/images/products/aura.png
+        price: 25
     assets:
       - assets/images/**/*.png
       - assets/sounds/**/*.mp4
