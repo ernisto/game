@@ -5,6 +5,7 @@
         "JohnnyMorganz.stylua",
         "evaera.vscode-rojo",
         "tacheometrist.testez-companion",
-        "roonie007.hide-files"
+        "roonie007.hide-files",
+        "filiptibell.tooling-language-server"
     ]
 }
