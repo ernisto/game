@@ -1,17 +1,12 @@
-#!/usr/bin/env sh
-#// if we hve a cmd that is rinning npx cz that means finalize and commit
-FILE=commit.cmd
-if test -f "$FILE"; then
-    echo "$FILE exists."
-    rm commit.cmd
-    exit 0;
+stylua src --check
+stylua tests --check
+stylua stories --check
+
+echo "at the moment this CLI is broken on windows, pretty appreciable an PR to fix it
+if you dont use it, specify a commit message
+if you are in windows, and want to use it, you can use WSL"
+
+msg=$(head -n 1 "$1")
+if [[ -z "${msg// }" ]]; then
+    exec < /dev/tty && git cz --hook
 fi
-#// if on Windows, spwan a cmd that will run npx cz
-case `uname` in
-    *CYGWIN*|*MINGW*|*MSYS*)
-        echo "npx cz && exit" > commit.cmd
-        start commit.cmd
-    exit 1;;
-esac
-. "$(dirname "$0")/_/husky.sh"
-exec < /dev/tty && npx cz
