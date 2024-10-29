@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/ernisto/game#readme",
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.6"
   },
