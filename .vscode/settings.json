@@ -31,7 +31,9 @@
         ".github": true
     },
     "yaml.schemas": {
-        "https://mantledeploy.vercel.app/schemas/v0.11.15/schema.json": [ "mantle.yml" ],
+        "https://mantledeploy.vercel.app/schemas/v0.11.15/schema.json": [
+            "mantle.yml"
+        ],
         "https://json.schemastore.org/github-workflow.json": ".github/workflows/deploy.yml"
     },
     "luau-lsp.types.definitionFiles": [
