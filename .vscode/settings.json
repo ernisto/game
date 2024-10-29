@@ -38,6 +38,6 @@
         "https://json.schemastore.org/github-workflow.json": ".github/workflows/deploy.yml"
     },
     "luau-lsp.types.definitionFiles": [
-        "tests/testez.d.luau"
+        "testez.d.luau"
     ],
 }
