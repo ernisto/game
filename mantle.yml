@@ -12,7 +12,7 @@ target:
     configuration:
       genre: all
       playability: private
-      
+
       enableStudioAccessToApis: true
       allowThirdPartyTeleports: false
       allowThirdPartySales: false
@@ -22,9 +22,9 @@ target:
       avatarCollisionType: outerBox
     places:
       start:
-        file: game.rbxl
+        file: out/rojo/game.rbxl
         configuration:
-          name: 'Game'
+          name: "Game"
           serverFill: robloxOptimized
           maxPlayerCount: 10
           allowCopying: false
