@@ -2,8 +2,8 @@ name: Lint Code, Check Format, Run Tests
 
 on:
   workflow_dispatch:
-    - pull_request:
-    - push:
+  pull_request:
+  push:
 
 jobs:
   check:
