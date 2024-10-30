@@ -25,7 +25,7 @@ jobs:
       - name: Build project
         run: scripts/rojo-build.cmd
       # Release Git Hub
-      - uses: npm ci
+      - run: npm ci
       - uses: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
