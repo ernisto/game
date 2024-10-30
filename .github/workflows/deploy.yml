@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: Ubuntu-Latest
+    runs-on: Windows-Latest
     steps:
       # Checkout your Git repo
       - uses: actions/checkout@v2
@@ -22,11 +22,11 @@ jobs:
           chmod +x scripts/rojo-build.cmd
           scripts/rojo-build.cmd
       # Bump change log
-      - name: Create bump and changelog
-        uses: commitizen-tools/commitizen-action@master
-        with:
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          changelog_increment_filename: CHANGELOG.md
+      # - name: Create bump and changelog
+      #   uses: commitizen-tools/commitizen-action@master
+      #   with:
+      #     github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      #     changelog_increment_filename: CHANGELOG.md
       # Release Git Hub
       - name: Release
         uses: softprops/action-gh-release@v1

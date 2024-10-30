@@ -1,3 +1,3 @@
 npm install
 aftman install
-scripts/wally-install.cmd
+call scripts/wally-install.cmd
