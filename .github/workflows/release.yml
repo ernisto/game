@@ -1,41 +1,32 @@
-name: Deploy
+name: Release
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - v*
+  pull_request:
     branches:
       - master
-      - dev
 
 jobs:
   build-and-deploy:
+    permissions:
+      pull-requests: write
+      contents: write
+      issues: write
     runs-on: Windows-Latest
     steps:
       # Checkout your Git repo
-      - uses: actions/checkout@v2
+      - name: Checkout git files
+        uses: actions/checkout@v2
       # Install aftman and all aftman tools (rojo and mantle)
-      - uses: ok-nick/setup-aftman@v0.4.2
+      - name: Setup Aftman Tools
+        uses: ok-nick/setup-aftman@v0.4.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       # Build the project with rojo
       - name: Build project
-        run: |
-          chmod +x scripts/rojo-build.cmd
-          scripts/rojo-build.cmd
-      # Bump change log
-      # - name: Create bump and changelog
-      #   uses: commitizen-tools/commitizen-action@master
-      #   with:
-      #     github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      #     changelog_increment_filename: CHANGELOG.md
+        run: scripts/rojo-build.cmd
       # Release Git Hub
-      - name: Release GitHub
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ env.REVISION }}
-          files: "out/rojo/game.rbxl"
-          body_path: "CHANGELOG.md"
+      - uses: npm ci
+      - uses: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Deploy the project with mantle
