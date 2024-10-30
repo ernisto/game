@@ -24,9 +24,13 @@ jobs:
       # Build the project with rojo
       - name: Build project
         run: scripts/rojo-build.cmd
-      # Release Git Hub
+      # Setup Node
+      - uses: actions/setup-node@v2
+        with:
+          version: 20.8.1
       - run: npm i
       - run: npm ci
+      # Release Git Hub
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
