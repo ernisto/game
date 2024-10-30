@@ -31,7 +31,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          file: "out/rojo/game.rbxl"
+          files: "out/rojo/game.rbxl"
           body_path: "CHANGELOG.md"
           tag_name: ${{ env.REVISION }}
         env:
