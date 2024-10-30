@@ -18,9 +18,9 @@ jobs:
       # Checkout your Git repo
       - uses: actions/checkout@v2
       # Install aftman and all aftman tools (rojo and mantle)
-      - uses: ok-nick/setup-aftman@v0.4.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: ok-nick/setup-aftman@v0.4.2
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
       # Check Code Format
       - uses: JohnnyMorganz/stylua-action@v4
         with:
