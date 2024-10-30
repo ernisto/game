@@ -1,4 +1,5 @@
-wally install
+chmod +x scripts/wally-install.cmd
+
 mkdir Packages
 mkdir DevPackages
 mkdir ServerPackages
