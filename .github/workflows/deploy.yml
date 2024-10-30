@@ -18,7 +18,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       # Build the project with rojo
       - name: Build project
-        run: scripts/rojo-build.cmd
+        run: |
+          chmod +x scripts/rojo-build.cmd
+          scripts/rojo-build.cmd
       # Bump change log
       - name: Create bump and changelog
         uses: commitizen-tools/commitizen-action@master
