@@ -1,1 +1,1 @@
-still not automatizated
+deploying project automatically
