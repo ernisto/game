@@ -6,20 +6,12 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
-    permissions:
-      pull-requests: write
-      contents: write
-      issues: write
+  build-place:
     runs-on: Windows-Latest
     steps:
       # Checkout your Git repo
       - name: Checkout git files
         uses: actions/checkout@v2
-      # Setup Node
-      - uses: actions/setup-node@v2
-      - run: npm i
-      - run: npm ci
       # Install aftman and all aftman tools (rojo and mantle)
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
@@ -28,10 +20,11 @@ jobs:
       # Build the project with rojo
       - name: Build project
         run: scripts/rojo-build.cmd
-      # Release Git Hub
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy-to-roblox:
+    runs-on: Windows-Latest
+    needs: build
+    steps:
       # Deploy the project with mantle
       - name: Deploy project
         run: mantle deploy
@@ -40,3 +33,20 @@ jobs:
           MANTLE_OPEN_CLOUD_API_KEY: ${{ secrets.MANTLE_OPEN_CLOUD_API_KEY }}
           # MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
           # MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}
+
+  release-github-version:
+    runs-on: Windows-Latest
+    needs: build
+    permissions:
+      pull-requests: write
+      contents: write
+      issues: write
+    steps:
+      # Setup Node
+      - uses: actions/setup-node@v2
+      - run: npm i
+      - run: npm ci
+      # Release Git Hub
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
