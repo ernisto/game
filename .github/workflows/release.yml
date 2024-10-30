@@ -25,6 +25,7 @@ jobs:
       - name: Build project
         run: scripts/rojo-build.cmd
       # Release Git Hub
+      - run: npm i
       - run: npm ci
       - run: npx semantic-release
         env:
