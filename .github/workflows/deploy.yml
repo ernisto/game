@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: Ubuntu-Latest
     steps:
       # Checkout your Git repo
       - uses: actions/checkout@v2
