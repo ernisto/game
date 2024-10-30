@@ -1,0 +1,30 @@
+name: Lint Code, Check Format, Run Tests
+
+on:
+  workflow_dispatch:
+    - pull_request:
+      branches:
+        - master
+        - dev
+    - push:
+      branches:
+        - master
+        - dev
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      # Checkout your Git repo
+      - uses: actions/checkout@v2
+      # Install aftman and all aftman tools (rojo and mantle)
+      - uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      # Check Code Format
+      - uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.20.0 # NOTE: we recommend pinning to a specific version in case of formatting changes
+          # CLI arguments
+          args: --check src
