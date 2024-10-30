@@ -26,7 +26,7 @@ jobs:
         run: scripts/rojo-build.cmd
       # Release Git Hub
       - run: npm ci
-      - uses: npx semantic-release
+      - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Deploy the project with mantle
