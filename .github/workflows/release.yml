@@ -16,6 +16,10 @@ jobs:
       # Checkout your Git repo
       - name: Checkout git files
         uses: actions/checkout@v2
+      # Setup Node
+      - uses: actions/setup-node@v2
+      - run: npm i
+      - run: npm ci
       # Install aftman and all aftman tools (rojo and mantle)
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
@@ -24,12 +28,6 @@ jobs:
       # Build the project with rojo
       - name: Build project
         run: scripts/rojo-build.cmd
-      # Setup Node
-      - uses: actions/setup-node@v2
-        with:
-          version: 20.8.1
-      - run: npm i
-      - run: npm ci
       # Release Git Hub
       - run: npx semantic-release
         env:
