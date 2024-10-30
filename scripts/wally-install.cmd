@@ -3,7 +3,7 @@ chmod +x scripts/wally-install.cmd
 mkdir Packages
 mkdir DevPackages
 mkdir ServerPackages
-wally-patch-packages
+wally-patch-package
 
 scripts/rojo-sourcemap.cmd
 wally-package-types --sourcemap sourcemap.json Packages
