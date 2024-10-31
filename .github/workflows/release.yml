@@ -24,10 +24,10 @@ jobs:
       - name: Deploy project
         run: mantle deploy
         env:
-          # ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
           MANTLE_OPEN_CLOUD_API_KEY: ${{ secrets.MANTLE_OPEN_CLOUD_API_KEY }}
-          # MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
-          # MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}
+          MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
+          MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}
 
   release-github-version:
     runs-on: Windows-Latest
