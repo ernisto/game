@@ -42,8 +42,11 @@ jobs:
           name: place-build
           path: out/rojo/game.tar
 
-      - name: "Un-Tar place build"
-        run: tar -xvf out/rojo/game.tar out/rojo/game.rbxl
+      - name: Extract place build
+        uses: ihiroky/extract-action@v1
+        with:
+          file_path: out/rojo/game.tar
+          extract_dir: out/rojo
 
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
@@ -75,8 +78,11 @@ jobs:
           name: place-build
           path: out/rojo/game.tar
 
-      - name: "Un-Tar place build"
-        run: tar -xvf out/rojo/game.tar out/rojo/game.rbxl
+      - name: Extract place build
+        uses: ihiroky/extract-action@v1
+        with:
+          file_path: out/rojo/game.tar
+          extract_dir: out/rojo
 
       - name: Setup node v20.8.1
         uses: actions/setup-node@v2
