@@ -76,7 +76,7 @@ jobs:
         run: npm i
 
       - name: Install node CI modules
-        run: npm ci --only=production --ignore-scripts
+        run: npm ci
 
       - name: Release GitHub
         run: npx semantic-release
