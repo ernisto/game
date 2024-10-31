@@ -46,7 +46,7 @@ jobs:
         uses: ihiroky/extract-action@v1
         with:
           file_path: out/rojo/game.tar
-          extract_dir: out/rojo
+          extract_dir: out/rojo/game.rbxl
 
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
@@ -82,7 +82,7 @@ jobs:
         uses: ihiroky/extract-action@v1
         with:
           file_path: out/rojo/game.tar
-          extract_dir: out/rojo
+          extract_dir: out/rojo/game.rbxl
 
       - name: Setup node v20.8.1
         uses: actions/setup-node@v2
