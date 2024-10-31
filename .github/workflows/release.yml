@@ -23,7 +23,7 @@ jobs:
 
   deploy-to-roblox:
     runs-on: Windows-Latest
-    needs: build
+    needs: build-place
     steps:
       # Deploy the project with mantle
       - name: Deploy project
@@ -36,7 +36,7 @@ jobs:
 
   release-github-version:
     runs-on: Windows-Latest
-    needs: build
+    needs: build-place
     permissions:
       pull-requests: write
       contents: write
