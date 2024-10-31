@@ -6,7 +6,7 @@ on:
   push:
 
 jobs:
-  check:
+  lint-code:
     runs-on: windows-latest
     steps:
       # Checkout your Git repo
@@ -25,6 +25,34 @@ jobs:
         run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc stories
       - name: Lint source code
         run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc src
+
+  check-format:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout your Git repo
+        uses: actions/checkout@v2
+
+      - name: Check Format [Source code]
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.20.0
+          args: --config-path stylua.toml --check src
+
+      - name: Check Format [Story books]
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.20.0
+          args: --config-path stylua.toml --check stories
+
+      - name: Check Format [Unit tests]
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.20.0
+          args: --config-path stylua.toml --check tests
+
       # Check Code Format
       # - uses: JohnnyMorganz/stylua-action@v4
       #   with:
