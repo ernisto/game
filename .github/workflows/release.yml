@@ -29,6 +29,8 @@ jobs:
   deploy:
     runs-on: Windows-Latest
     needs: build
+    permissions:
+      contents: write
     steps:
       - name: Checkout git files
         uses: actions/checkout@v2
