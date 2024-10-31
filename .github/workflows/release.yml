@@ -47,6 +47,7 @@ jobs:
         with:
           file_path: out/rojo/game.tar
           extract_dir: out/rojo/game.rbxl
+          verbose: true
 
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
