@@ -31,7 +31,7 @@ jobs:
 
   release-github-version:
     runs-on: Windows-Latest
-    needs: build-place
+    needs: build-and-deploy
     permissions:
       pull-requests: write
       contents: write
