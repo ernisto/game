@@ -2,16 +2,25 @@
   "name": "game",
   "tree": {
     "$className": "DataModel",
-
     "ReplicatedStorage": {
-      "Config": { "$path": "config" },
-      "Assets": { "$path": "assets",
+      "Config": {
+        "$path": "config"
+      },
+      "Assets": {
+        "$path": "assets",
         "$ignoreUnknownInstances": true
       },
-      "Packages": { "$path": "Packages" },
-      "Shared": { "$path": "src/shared" },
-      "Client": { "$path": "src/client",
-        "Remotes": { "$path": "out/remotes/client" },
+      "Packages": {
+        "$path": "Packages"
+      },
+      "Shared": {
+        "$path": "src/shared"
+      },
+      "Client": {
+        "$path": "src/client",
+        "Remotes": {
+          "$path": "out/remotes/client"
+        },
         "$className": "Script",
         "$properties": {
           "RunContext": "Client",
@@ -20,9 +29,14 @@
       }
     },
     "ServerScriptService": {
-      "Packages": { "$path": "ServerPackages" },
-      "Server": { "$path": "src/server",
-        "Remotes": { "$path": "out/remotes/server" },
+      "Packages": {
+        "$path": "ServerPackages"
+      },
+      "Server": {
+        "$path": "src/server",
+        "Remotes": {
+          "$path": "out/remotes/server"
+        },
         "$className": "Script",
         "$properties": {
           "RunContext": "Server",
@@ -31,13 +45,18 @@
       }
     },
     "ServerStorage": {
-      "Stories": { "$path": "stories" }
+      "Stories": {
+        "$path": "stories"
+      }
     },
     "TestService": {
-      "Packages": { "$path": "DevPackages" },
-      "Tests": { "$path": "tests" }
+      "Packages": {
+        "$path": "DevPackages"
+      },
+      "Tests": {
+        "$path": "tests"
+      }
     },
-
     "Workspace": {
       "$properties": {
         "FilteringEnabled": true
