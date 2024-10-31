@@ -42,6 +42,8 @@ So you planning implement a CI/CD workflow, where you will automatically publish
 your place when you push some change, you should configure a environment to be used by github action
 - Publish your repository to [Github](https://github.com)
 - Go to `Settings` > `Secrets and variables` > `Actions`
+- Create the variable:
+    - `HUSKY = 0` to disable client git hooks on github server
 - Create the secrets:
     - if you are publishing as a group `MANTLE_OPEN_CLOUD_API_KEY` for your Open Cloud API Key [Creating a Open Cloud API Key](#creating-a-open-cloud-api-key-link)
     - else if you just publishing as a person, `ROBLOSECURITY` for your personal roblox cookie [Getting your ROBLOXSECURITY cookie](#getting-your-robloxsecurity-cookie-link)
