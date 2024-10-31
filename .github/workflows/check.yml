@@ -12,9 +12,19 @@ jobs:
       # Checkout your Git repo
       - uses: actions/checkout@v2
       # Install aftman and all aftman tools (rojo and mantle)
-      # - uses: ok-nick/setup-aftman@v0.4.2
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      # Generate Sourcemap
+      - name: Install Wally Modules
+        run: scripts/wally-install.cmd
+      # Lint Types
+      - name: Lint unit tests
+        run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc --defs testez.d.luau tests
+      - name: Lint story books
+        run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc stories
+      - name: Lint source code
+        run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc src
       # Check Code Format
       - uses: JohnnyMorganz/stylua-action@v4
         with:
