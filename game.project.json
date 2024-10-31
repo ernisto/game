@@ -60,6 +60,9 @@
     "Workspace": {
       "$properties": {
         "FilteringEnabled": true
+      },
+      "Map": {
+        "$path": "places/lobby/map.rbxmx"
       }
     },
     "HttpService": {
