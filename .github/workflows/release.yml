@@ -25,6 +25,14 @@ jobs:
     runs-on: Windows-Latest
     needs: build-place
     steps:
+      # Checkout your Git repo
+      - name: Checkout git files
+        uses: actions/checkout@v2
+      # Install aftman and all aftman tools (rojo and mantle)
+      - name: Setup Aftman Tools
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       # Deploy the project with mantle
       - name: Deploy project
         run: mantle deploy
@@ -42,6 +50,9 @@ jobs:
       contents: write
       issues: write
     steps:
+      # Checkout your Git repo
+      - name: Checkout git files
+        uses: actions/checkout@v2
       # Setup Node
       - uses: actions/setup-node@v2
       - run: npm i
