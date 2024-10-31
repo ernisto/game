@@ -32,7 +32,7 @@ Or if this game is a serious project, that you have +1 developers,
 or just want to organize game revenue and assets, publish into your group
 ```yml
 owner:
-    groupId: your_group_id
+    group: your_group_id
 ```
 
 learn more: [mantle configuration](https://mantledeploy.vercel.app/docs/configuration/reference#owner)
