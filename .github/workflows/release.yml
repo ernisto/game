@@ -78,6 +78,9 @@ jobs:
       - name: Install node CI modules
         run: npm ci
 
+      - name: Disable Husky
+        run: npm pkg set scripts.prepare="exit 0"
+
       - name: Release GitHub
         run: npx semantic-release
         env:
