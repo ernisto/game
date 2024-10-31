@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-place:
+  build-and-deploy:
     runs-on: Windows-Latest
     steps:
       # Checkout your Git repo
@@ -20,19 +20,6 @@ jobs:
       # Build the project with rojo
       - name: Build project
         run: scripts/rojo-build.cmd
-
-  deploy-to-roblox:
-    runs-on: Windows-Latest
-    needs: build-place
-    steps:
-      # Checkout your Git repo
-      - name: Checkout git files
-        uses: actions/checkout@v2
-      # Install aftman and all aftman tools (rojo and mantle)
-      - name: Setup Aftman Tools
-        uses: ok-nick/setup-aftman@v0.4.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       # Deploy the project with mantle
       - name: Deploy project
         run: mantle deploy
