@@ -41,4 +41,5 @@
     "luau-lsp.types.definitionFiles": [
         "testez.d.luau"
     ],
+    "files.eol": "\n",
 }
