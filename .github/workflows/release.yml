@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: Windows-Latest
     steps:
       # Checkout your Git repo
@@ -20,6 +20,30 @@ jobs:
       # Build the project with rojo
       - name: Build project
         run: scripts/rojo-build.cmd
+      # Save Build
+      - name: Upload place build
+        uses: actions/upload-artifact@v4
+        with:
+          name: place-build
+          path: out/rojo/game.rbxl
+
+  deploy:
+    runs-on: Windows-Latest
+    needs: build
+    steps:
+      # Checkout your Git repo
+      - name: Checkout git files
+        uses: actions/checkout@v2
+      # Download place build
+      - name: Download a single artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: place-build
+      # Install aftman and all aftman tools (rojo and mantle)
+      - name: Setup Aftman Tools
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       # Deploy the project with mantle
       - name: Deploy project
         run: mantle deploy
@@ -31,7 +55,7 @@ jobs:
 
   release-github-version:
     runs-on: Windows-Latest
-    needs: build-and-deploy
+    needs: build
     permissions:
       pull-requests: write
       contents: write
@@ -40,6 +64,11 @@ jobs:
       # Checkout your Git repo
       - name: Checkout git files
         uses: actions/checkout@v2
+      # Download place build
+      - name: Download a single artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: place-build
       # Setup Node
       - uses: actions/setup-node@v2
         with:
