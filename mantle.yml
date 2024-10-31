@@ -1,3 +1,6 @@
+owner:
+  group: 16774807 # this is Starled Games group, but you should change it for your project
+
 environments:
   - label: dev
     targetAccess: private
