@@ -9,18 +9,17 @@ jobs:
   build:
     runs-on: Windows-Latest
     steps:
-      # Checkout your Git repo
       - name: Checkout git files
         uses: actions/checkout@v2
-      # Install aftman and all aftman tools (rojo and mantle)
+
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      # Build the project with rojo
+
       - name: Build project
         run: scripts/rojo-build.cmd
-      # Save Build
+
       - name: Upload place build
         uses: actions/upload-artifact@v4
         with:
@@ -31,20 +30,19 @@ jobs:
     runs-on: Windows-Latest
     needs: build
     steps:
-      # Checkout your Git repo
       - name: Checkout git files
         uses: actions/checkout@v2
-      # Download place build
-      - name: Download a single artifact
+
+      - name: Download builded place
         uses: actions/download-artifact@v4
         with:
           name: place-build
-      # Install aftman and all aftman tools (rojo and mantle)
+
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      # Deploy the project with mantle
+
       - name: Deploy project
         run: mantle deploy
         env:
@@ -61,21 +59,26 @@ jobs:
       contents: write
       issues: write
     steps:
-      # Checkout your Git repo
       - name: Checkout git files
         uses: actions/checkout@v2
-      # Download place build
-      - name: Download a single artifact
+
+      - name: Download builded place
         uses: actions/download-artifact@v4
         with:
           name: place-build
-      # Setup Node
-      - uses: actions/setup-node@v2
+
+      - name: Setup node v20.8.1
+        uses: actions/setup-node@v2
         with:
           node-version: 20.8.1
-      - run: npm i
-      - run: npm ci
-      # Release Git Hub
-      - run: npx semantic-release
+
+      - name: Install node modules
+        run: npm i
+
+      - name: Install node CI modules
+        run: npm ci
+
+      - name: Release GitHub
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
