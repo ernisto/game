@@ -20,7 +20,7 @@ jobs:
       - name: Build project
         run: scripts/rojo-build.cmd
 
-      - name: "Tar place build"
+      - name: Tar place build
         run: tar -cvf out/rojo/game.tar out/rojo/game.rbxl
 
       - name: Upload place build
