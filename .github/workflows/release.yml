@@ -21,7 +21,7 @@ jobs:
         run: scripts/rojo-build.cmd
 
       - name: "Tar place build"
-        run: tar -cvf /out/rojo/game.tar /out/rojo/game.rbxl
+        run: tar -cvf out/rojo/game.tar out/rojo/game.rbxl
 
       - name: Upload place build
         uses: actions/upload-artifact@v4
@@ -43,7 +43,7 @@ jobs:
           path: out/rojo/game.tar
 
       - name: "Un-Tar place build"
-        run: tar -xvf /out/rojo/game.tar /out/rojo/game.rbxl
+        run: tar -xvf out/rojo/game.tar out/rojo/game.rbxl
 
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
@@ -76,7 +76,7 @@ jobs:
           path: out/rojo/game.tar
 
       - name: "Un-Tar place build"
-        run: tar -xvf /out/rojo/game.tar /out/rojo/game.rbxl
+        run: tar -xvf out/rojo/game.tar out/rojo/game.rbxl
 
       - name: Setup node v20.8.1
         uses: actions/setup-node@v2
