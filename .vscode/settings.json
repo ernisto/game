@@ -30,7 +30,7 @@
         "out": true,
         ".vscode": true,
         ".github": true,
-        ".husky": true,
+        ".husky": true
     },
     "yaml.schemas": {
         "https://mantledeploy.vercel.app/schemas/v0.11.15/schema.json": [
