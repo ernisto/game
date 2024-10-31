@@ -47,7 +47,7 @@ jobs:
         with:
           command: x
           cwd: ./out/rojo
-          files: game.tar
+          files: out/rojo/game.tar
 
       - name: Setup Aftman Tools
         uses: ok-nick/setup-aftman@v0.4.2
@@ -84,7 +84,7 @@ jobs:
         with:
           command: x
           cwd: ./out/rojo
-          files: game.tar
+          files: out/rojo/game.tar
 
       - name: Setup node v20.8.1
         uses: actions/setup-node@v2
