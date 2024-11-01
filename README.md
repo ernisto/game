@@ -36,6 +36,21 @@ owner:
     group: your_group_id
 ```
 
+For both the cases, you should update this part too
+- if you want manage your mantle states remotelly (through Amazon AWS or Cloud Flare)
+you must to fill those infos with your bucket infos
+- otherwise you want manage them locally, just remote it
+```yml
+state:
+  remote:
+    region:
+      custom:
+        name: ENAM # Bucket Location
+        endpoint: https://dc88f586de4d2c1eb08099d9e049613e.r2.cloudflarestorage.com # Bucket API S3
+    bucket: starled-games-mantle-states # Bucket Name
+    key: template # Prefix of .mantle-state.yml, tipically your project name
+```
+
 learn more: [mantle configuration](https://mantledeploy.vercel.app/docs/configuration/reference#owner)
 
 ## Configure Github Environment
