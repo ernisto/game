@@ -1,4 +1,4 @@
-name: Lint Code, Check Format, Run Tests
+name: Static/Runtime Analysis
 
 on:
   workflow_dispatch:
