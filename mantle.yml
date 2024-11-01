@@ -15,7 +15,7 @@ state:
     region:
       custom:
         name: ENAM # Bucket Location
-        endpoint: https://dc88f586de4d2c1eb08099d9e049613e.r2.cloudflarestorage.com/starled-games-mantle-states # Bucket API S3
+        endpoint: https://dc88f586de4d2c1eb08099d9e049613e.r2.cloudflarestorage.com # Bucket API S3
     bucket: starled-games-mantle-states # Bucket Name
     key: template # Prefix of .mantle-state.yml, tipically your project name
 
