@@ -1,3 +1,4 @@
+wally install
 mkdir Packages &
 mkdir DevPackages &
 mkdir ServerPackages &
