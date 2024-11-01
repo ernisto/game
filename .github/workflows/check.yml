@@ -21,7 +21,7 @@ jobs:
         run: scripts/wally-install.cmd
 
       - name: Lint unit tests
-        run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc --defs testez.d.luau tests
+        run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc --defs globals/testez.d.luau tests
       - name: Lint story books
         run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc stories
       - name: Lint source code
