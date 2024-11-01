@@ -7,7 +7,7 @@
         "*.jsx": "${capture}.js",
         "*.tsx": "${capture}.ts",
         "tsconfig.json": "tsconfig.*.json",
-        "package.json": ".luaurc, *.toml, *.json, *.yml, *.yaml, *.lock",
+        "package.json": ".luaurc, *.toml, *.json, *.yml, *.yaml, *.lock, *.js",
         "README.md": "*.md",
         "init.cmd": "*.cmd",
         "init.sh": "*.sh",
