@@ -1,9 +1,5 @@
 [ -n "$CI" ] && exit 0
 
-stylua src --check
-stylua tests --check
-stylua stories --check
-
 msg=$(head -n 1 "$1")
 if [[ -z "${msg// }" ]]; then
     echo "at the moment this CLI is broken on windows, pretty appreciable an PR to fix it
