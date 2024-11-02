@@ -1,2 +1,1 @@
-- [ ] Staged Lint
 - [ ] Request Roblox to run Unit Tests
