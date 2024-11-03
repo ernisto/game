@@ -70,7 +70,7 @@ jobs:
           name: place-build
 
       - name: Run Tests
-        run: python3 scripts/python/upload_and_run_task.py out/rojo/game.rbxl tests/run.luau
+        run: python3 scripts/python/upload_and_run_tasks.py out/rojo/game.rbxl tests/run.luau
         env:
           ROBLOX_API_KEY: ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }}
           ROBLOX_UNIVERSE_ID: ${{ vars.TEST_RUNNER_UNIVERSE_ID }}
