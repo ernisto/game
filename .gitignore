@@ -1,9 +1,6 @@
 # Project place file
 /*.rbxl
 
-# Lock files
-/*.lock
-
 # Rojo
 sourcemap.json
 
