@@ -55,7 +55,7 @@ jobs:
           args: --config-path stylua.toml --check tests
 
   unit-tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout your Git repo
         uses: actions/checkout@v2
