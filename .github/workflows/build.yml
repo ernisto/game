@@ -16,6 +16,7 @@ jobs:
         uses: ok-nick/setup-aftman@v0.4.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          cache: true
 
       - name: Build project
         run: scripts/rojo-build.cmd
