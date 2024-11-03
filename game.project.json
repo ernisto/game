@@ -62,7 +62,7 @@
         "FilteringEnabled": true
       },
       "Map": {
-        "$path": "places/lobby/map.rbxmx"
+        "$path": "places/map.rbxmx"
       }
     },
     "HttpService": {
