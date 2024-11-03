@@ -8,24 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: Windows-Latest
-    steps:
-      - name: Checkout git files
-        uses: actions/checkout@v2
-
-      - name: Setup Aftman Tools
-        uses: ok-nick/setup-aftman@v0.4.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build project
-        run: scripts/rojo-build.cmd
-
-      - name: Upload place build
-        uses: alehechka/upload-tartifact@v2
-        with:
-          name: place-build
-          path: out/rojo/game.rbxl
+    uses: ./.github/workflows/build.yml
 
   deploy:
     runs-on: Windows-Latest
