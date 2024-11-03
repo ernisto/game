@@ -61,4 +61,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Tests
-        run: echo "Not implemented yet"
+        run: ./scripts/shell/test.sh default.project.json $TEST_TASK_FILE
+        env:
+          ROBLOX_API_KEY: ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }}
+          ROBLOX_UNIVERSE_ID: ${{ vars.TEST_RUNNER_UNIVERSE_ID }}
+          ROBLOX_PLACE_ID: ${{ vars.TEST_RUNNER_PLACE_ID }}
+          TEST_TASK_FILE: tests/run.luau
