@@ -1,0 +1,79 @@
+{
+  "name": "place",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Config": {
+        "$path": "../../config"
+      },
+      "Assets": {
+        "$path": "../../assets",
+        "$ignoreUnknownInstances": true
+      },
+      "Packages": {
+        "$path": "../../Packages"
+      },
+      "Shared": {
+        "$path": "../../src/shared"
+      },
+      "Client": {
+        "$path": "../../src/client",
+        "Remotes": {
+          "$path": "../../out/remotes/client"
+        },
+        "$className": "Script",
+        "$properties": {
+          "RunContext": "Client",
+          "Source": "for _,module in script:GetDescendants() do\n\tif module:IsA('ModuleScript') then task.spawn(require, module) end\nend"
+        }
+      }
+    },
+    "ServerScriptService": {
+      "Packages": {
+        "$path": "../../ServerPackages"
+      },
+      "Server": {
+        "$path": "../../src/server",
+        "Remotes": {
+          "$path": "../../out/remotes/server"
+        },
+        "$className": "Script",
+        "$properties": {
+          "RunContext": "Server",
+          "Source": "for _,module in script:GetDescendants() do\n\tif module:IsA('ModuleScript') then task.spawn(require, module) end\nend"
+        }
+      }
+    },
+    "ServerStorage": {
+      "Stories": {
+        "$path": "../../stories"
+      }
+    },
+    "TestService": {
+      "Packages": {
+        "$path": "../../DevPackages"
+      },
+      "Tests": {
+        "$path": "../../tests"
+      }
+    },
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      },
+      "Map": {
+        "$path": "map.rbxmx"
+      }
+    },
+    "HttpService": {
+      "$properties": {
+        "HttpEnabled": false
+      }
+    },
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    }
+  }
+}
