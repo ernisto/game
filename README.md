@@ -46,6 +46,9 @@ used by github action
 - Go to `Settings` > `Secrets and variables` > `Actions`
 - Create the variable:
     - `HUSKY = 0` to disable client git hooks on github server
+    - `CI = true` to disable client hooks on github actions
+    - `TEST_RUNNER_PLACE_ID` to set a place for unit tests be executed
+    - `TEST_RUNNER_UNIVERSE_ID` to set a experience for unit tests be executed
 - Create the secrets:
     - if you are publishing as a group `MANTLE_OPEN_CLOUD_API_KEY` for your
     Open Cloud API Key [Creating a Open Cloud API Key](#creating-a-open-cloud-api-key-link)
@@ -62,6 +65,7 @@ is recommended you just create a `.env` file in the root of the project,
 and add the following variables:
 ```toml
 MANTLE_OPEN_CLOUD_API_KEY="{api key}"
+TEST_RUNNER_OPEN_CLOUD_API_KEY="{api key}"
 
 # If u want remote mantle state management
 MANTLE_AWS_ACCESS_KEY_ID="{your access key id}"
