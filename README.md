@@ -50,10 +50,9 @@ used by github action
     - `TEST_RUNNER_PLACE_ID` to set a place for unit tests be executed
     - `TEST_RUNNER_UNIVERSE_ID` to set a experience for unit tests be executed
 - Create the secrets:
-    - if you are publishing as a group `MANTLE_OPEN_CLOUD_API_KEY` for your
+    - `ROBLOSECURITY` for your personal roblox cookie [Getting your ROBLOXSECURITY cookie](#getting-your-robloxsecurity-cookie-link)
+    - `MANTLE_OPEN_CLOUD_API_KEY` and `TEST_RUNNER_OPEN_CLOUD_API_KEY` for your
     Open Cloud API Key [Creating a Open Cloud API Key](#creating-a-open-cloud-api-key-link)
-    - else if you just publishing as a person, `ROBLOSECURITY` for your personal
-    roblox cookie [Getting your ROBLOXSECURITY cookie](#getting-your-robloxsecurity-cookie-link)
     - if you are using Amazon AWS or Cloudflare to store your `mantle-state.yml`,
     create `MANTLE_AWS_ACCESS_KEY_ID` and `MANTLE_AWS_SECRET_ACCESS_KEY`
 
