@@ -22,22 +22,19 @@ function Profile.awaitCachedLoad(player: Player): ProfileStore.Profile<data>
 	local self = playersStore:StartSessionAsync(tostring(player.UserId), {})
 	loadings[player] = nil
 
-	-- profile handling
-	if not self then
-		player:Kick(`wasnt possible load your data`)
-		error(`generic ProfileStore error`)
-	end
-	self.OnSessionEnd:Connect(function()
-		player:Kick(`session stealed by another server`)
-		profiles[player] = nil
-	end)
+	assert(self, `generic ProfileStore error`)
 
 	-- start up
 	self:AddUserId(player.UserId)
 	self:Reconcile()
 
-	-- end
+	-- cache
 	profiles[player] = self
+	self.OnSessionEnd:Connect(function()
+		profiles[player] = nil
+	end)
+
+	-- end
 	return self
 end
 
