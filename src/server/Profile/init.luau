@@ -13,6 +13,26 @@ local profiles = {}
 local loadings = {}
 local Profile = {}
 
+-- functions
+function Profile.isLoading(player: Player): boolean
+	return loadings[player] or false
+end
+function Profile.find(player: Player): Profile?
+	return profiles[player]
+end
+function Profile.expect(player: Player, errorMessage: string?): Profile
+	return Profile.find(player) or error(errorMessage or `profile wasnt loaded`)
+end
+function Profile.awaitFind(player: Player): Profile?
+	while loadings[player] do
+		task.wait()
+	end
+	return loadings[player]
+end
+function Profile.awaitExpect(player: Player, errorMessage: string?): Profile
+	return Profile.awaitFind(player) or error(errorMessage or `profile isnt loading/loaded`)
+end
+
 -- builder
 function Profile.awaitCachedLoad(player: Player): Profile
 	while loadings[player] do
