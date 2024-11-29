@@ -10,12 +10,10 @@ git clone https://github.com/ernisto/game
 learn more: [git cloning an existing repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
 
 ## Install Dependencies
-Assuming that you already have [Aftman](https://github.com/LPGhatguy/aftman)
-installed into your current user,
+Assuming that you already have [Aftman](https://github.com/LPGhatguy/aftman) and [NodeJS](https://nodejs.org) installed into your current user,
 install all CLI tools, and run our script to install all wally packages with
 ```sh
-aftman install
-./scripts/wally-install
+./scripts/init
 ```
 
 learn more: [wally](https://github.com/UpliftGames/wally?tab=readme-ov-file#wally-install---locked)
