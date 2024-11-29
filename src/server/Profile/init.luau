@@ -9,8 +9,10 @@ local profiles = {}
 local loadings = {}
 local Profile = {}
 
+export type data = typeof(template)
+
 -- builder
-function Profile.awaitCachedLoad(player: Player)
+function Profile.awaitCachedLoad(player: Player): ProfileStore.Profile<data>
 	while loadings[player] do
 		task.wait()
 	end
