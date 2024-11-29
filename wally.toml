@@ -9,6 +9,7 @@ Promise = "lukadev-0/typed-promise@4.0.2"
 spr = "skiestrixx/spr@2.1.0"
 
 [dev-dependencies]
+uilabs = "pepeeltoro41/ui-labs@2.3.0"
 TestEZ = "roblox/testez@0.4.1"
 
 [server-dependencies]
