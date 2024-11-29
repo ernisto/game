@@ -1,15 +1,15 @@
 -- packages
 local ServerScriptService = game:GetService('ServerScriptService')
 local ProfileStore = require(ServerScriptService.Packages.ProfileStore)
+
 local template = require(script.template)
+export type data = typeof(template)
 
 -- module
 local playersStore = ProfileStore.New('players', template)
 local profiles = {}
 local loadings = {}
 local Profile = {}
-
-export type data = typeof(template)
 
 -- builder
 function Profile.awaitCachedLoad(player: Player): ProfileStore.Profile<data>
