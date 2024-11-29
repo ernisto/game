@@ -5,6 +5,8 @@ local ProfileStore = require(ServerScriptService.Packages.ProfileStore)
 local template = require(script.template)
 export type data = typeof(template)
 
+export type Profile = ProfileStore.Profile<data>
+
 -- module
 local playersStore = ProfileStore.New('players', template)
 local profiles = {}
@@ -12,7 +14,7 @@ local loadings = {}
 local Profile = {}
 
 -- builder
-function Profile.awaitCachedLoad(player: Player): ProfileStore.Profile<data>
+function Profile.awaitCachedLoad(player: Player): Profile
 	while loadings[player] do
 		task.wait()
 	end
