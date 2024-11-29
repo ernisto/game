@@ -1,5 +1,4 @@
 -- packages
-local Players = game:GetService('Players')
 local ServerScriptService = game:GetService('ServerScriptService')
 local ProfileStore = require(ServerScriptService.Packages.ProfileStore)
 local template = require(script.template)
@@ -29,15 +28,6 @@ function Profile.awaitCachedLoad(player: Player)
 	self.OnSessionEnd:Connect(function()
 		player:Kick(`session stealed by another server`)
 		profiles[player] = nil
-	end)
-
-	-- player handling
-	if not player:IsDescendantOf(Players) then
-		self:EndSession()
-		error(`player already quited`)
-	end
-	player.AncestryChanged:Once(function()
-		self:EndSession()
 	end)
 
 	-- start up
