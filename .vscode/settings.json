@@ -39,6 +39,12 @@
         ],
         "https://json.schemastore.org/github-workflow.json": ".github/workflows/deploy.yml"
     },
+    "luau-lsp.ignoreGlobs": [
+        "**/node_modules/**",
+        "node_modules/**",
+        "**/_Index/**",
+        "out/**"
+    ],
     "luau-lsp.types.definitionFiles": [
         "globals/testez.d.luau"
     ],
