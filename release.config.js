@@ -7,7 +7,11 @@ const config = {
             assets: ["out/rojo/game.rbxl"],
             message: "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }],
-        '@semantic-release/github'
+        ["@semantic-release/github", {
+            assets: [
+                { path: "out/rojo/game.rbxl", label: "Rojo build" },
+            ]
+        }]
     ]
 }
 
