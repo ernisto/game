@@ -1,3 +1,14 @@
 {
-    "languageMode": "strict"
+    "languageMode": "strict",
+    "lint": {
+        "*": true
+    },
+    "lintErrors": true,
+    "typeErrors": true,
+    "globals": [
+        // "warn",
+    ],
+    "aliases": {
+        // "packages": "./Packages"
+    }
 }
