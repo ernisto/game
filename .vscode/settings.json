@@ -49,4 +49,8 @@
         "globals/testez.d.luau"
     ],
     "files.eol": "\n",
+    "files.associations": {
+        "*.blink": "blink",
+        ".luaurc": "jsonl"
+    },
 }
