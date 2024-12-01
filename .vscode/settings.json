@@ -51,7 +51,6 @@
     ],
     "files.eol": "\n",
     "files.associations": {
-        "*.blink": "blink",
-        ".luaurc": "jsonl"
+        "*.blink": "blink"
     },
 }
