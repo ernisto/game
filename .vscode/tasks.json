@@ -4,9 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "wally-install",
+        {
+            "label": "build",
             "type": "shell",
-            "command": "scripts/wally-install",
+            "command": "scripts/release-build",
             "problemMatcher": {
                 "pattern": {
                     "regexp": "^error: (.*)",
@@ -15,9 +16,20 @@
             }
         },
         {
-            "label": "blink-build",
+            "label": "build:dev",
             "type": "shell",
-            "command": "scripts/rojo-sourcemap",
+            "command": "scripts/dev-build",
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^error: (.*)",
+                    "message": 1
+                }
+            }
+        },
+        {
+            "label": "build:remotes",
+            "type": "shell",
+            "command": "blink src/remotes/init",
             "problemMatcher": {
                 "pattern": {
                     "regexp": "^error: (.*)",
