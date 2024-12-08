@@ -116,23 +116,6 @@ jobs:
           --ignore **/node_modules/**
           --defs globalTypes.d.luau
 
-  check-secrets:
-    runs-on: ubuntu-latest
-    steps:
-      - name: check-env
-        run: |
-          required_secrets=("TOKEN" "VAR1" "VAR2")
-          for secret in "${required_secrets[@]}"; do
-            if [ -z "${!secret}" ]; then
-              echo "Erro: Secret $secret not defined or empty"
-              exit 1
-            fi
-          done
-        env:
-          TOKEN: ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }}
-          VAR1: ${{ vars.TEST_RUNNER_UNIVERSE_ID }}
-          VAR2: ${{ vars.TEST_RUNNER_PLACE_ID }}
-
   unit-tests:
     runs-on: windows-latest
     needs: build-dev-game
