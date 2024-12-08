@@ -21,7 +21,10 @@ jobs:
       - name: Checkout git files
         uses: actions/checkout@v2
 
-      - name: Download builded place
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
         uses: alehechka/download-tartifact@v2
         with:
           name: place-build
