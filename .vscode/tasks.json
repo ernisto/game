@@ -48,7 +48,7 @@
             }
         },
         {
-            "label": "build:remotes",
+            "label": "build:blink",
             "type": "shell",
             "command": "blink src/remotes/init",
             "problemMatcher": {
