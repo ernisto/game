@@ -4,3 +4,8 @@ event MyFirstEvent {
     call: SingleSync,
     data: string
 }
+function MyFirstFunction {
+    yield: Promise,
+    data: string,
+    return: number
+}
