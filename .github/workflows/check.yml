@@ -134,7 +134,10 @@ jobs:
 
       - id: check-secret
         if: ${{ env.EXISTS }}
-        run: exit 1
+        run: |
+          echo $env:EXISTS
+          echo "TEST_RUNNER_OPEN_CLOUD_API_KEY not defined"
+          exit 1
         env:
           EXISTS: ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }} == null || ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }} == ""
 
