@@ -88,7 +88,7 @@ jobs:
 
       - name: Lint unit tests
         run: >
-          luau-lsp analyze tests
+          luau-lsp analyze
           --sourcemap sourcemap.json
           --base-luaurc .luaurc
           --ignore **/ServerPackages/**
@@ -97,10 +97,11 @@ jobs:
           --ignore **/node_modules/**
           --defs globalTypes.d.luau
           --defs globals/testez.d.luau
+          tests
 
       - name: Lint story books
         run: >
-          luau-lsp analyze stories
+          luau-lsp analyze
           --sourcemap sourcemap.json
           --base-luaurc .luaurc
           --ignore **/ServerPackages/**
@@ -108,10 +109,11 @@ jobs:
           --ignore **/Packages/**
           --ignore **/node_modules/**
           --defs globalTypes.d.luau
+          stories
 
       - name: Lint source code
         run: >
-          luau-lsp analyze src
+          luau-lsp analyze
           --sourcemap sourcemap.json
           --base-luaurc .luaurc
           --ignore **/ServerPackages/**
@@ -119,6 +121,7 @@ jobs:
           --ignore **/Packages/**
           --ignore **/node_modules/**
           --defs globalTypes.d.luau
+          src
 
   unit-tests:
     runs-on: windows-latest
