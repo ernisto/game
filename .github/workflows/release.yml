@@ -10,32 +10,6 @@ jobs:
   build:
     uses: ./.github/workflows/build.yml
 
-  deploy:
-    runs-on: Windows-Latest
-    needs: build
-    steps:
-      - name: Checkout git files
-        uses: actions/checkout@v2
-
-      - name: Download builded place
-        uses: alehechka/download-tartifact@v2
-        with:
-          name: place-build
-
-      - name: Setup Aftman Tools
-        uses: ok-nick/setup-aftman@v0.4.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          cache: true
-
-      - name: Deploy project
-        run: mantle deploy
-        env:
-          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
-          MANTLE_OPEN_CLOUD_API_KEY: ${{ secrets.MANTLE_OPEN_CLOUD_API_KEY }}
-          MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
-          MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}
-
   release-github-version:
     runs-on: Windows-Latest
     needs: build
@@ -69,3 +43,7 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+          MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
+          MANTLE_OPEN_CLOUD_API_KEY: ${{ secrets.MANTLE_OPEN_CLOUD_API_KEY }}
+          MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}

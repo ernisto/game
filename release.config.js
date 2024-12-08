@@ -9,8 +9,12 @@ const config = {
         }],
         ["@semantic-release/github", {
             assets: [
-                { path: "out/rojo/game.rbxl", label: "Rojo build" },
+                { path: "out/rojo/game.rbxl", label: "Release build" },
             ]
+        }],
+        ["@semantic-release/exec", {
+            prepareCmd: "powershell scripts/release-build ${nextRelease.version}",
+            publishCmd: "mantle deploy"
         }]
     ]
 }
