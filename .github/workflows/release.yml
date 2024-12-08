@@ -26,6 +26,12 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Setup Aftman Tools
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          cache: true
+
       - name: Setup node v20.8.1
         uses: actions/setup-node@v2
         with:

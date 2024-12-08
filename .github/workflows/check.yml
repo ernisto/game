@@ -71,7 +71,7 @@ jobs:
       - name: Checkout your Git repo
         uses: actions/checkout@v2
 
-      - name: Install aftman and all aftman tools (rojo and mantle)
+      - name: Setup Aftman Tools (luau-lsp)
         uses: ok-nick/setup-aftman@v0.4.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
