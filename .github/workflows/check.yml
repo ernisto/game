@@ -75,7 +75,7 @@ jobs:
       - name: Download game build
         uses: alehechka/download-tartifact@v2
         with:
-          name: game-build
+          name: dev-game-build
 
       - name: Install Wally Modules
         run: scripts/wally-install.cmd dev.project.json
