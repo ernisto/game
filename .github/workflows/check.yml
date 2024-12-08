@@ -117,6 +117,23 @@ jobs:
             --ignore **/node_modules/**
             --defs globalTypes.d.luau
 
+  check-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check-env
+        run: |
+          required_secrets=("TOKEN" "VAR1" "VAR2")
+          for secret in "${required_secrets[@]}"; do
+            if [ -z "${!secret}" ]; then
+              echo "Erro: Secret $secret not defined or empty"
+              exit 1
+            fi
+          done
+        env:
+          TOKEN: ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }}
+          VAR1: ${{ vars.TEST_RUNNER_UNIVERSE_ID }}
+          VAR2: ${{ vars.TEST_RUNNER_PLACE_ID }}
+
   unit-tests:
     runs-on: windows-latest
     needs: build-dev-game
@@ -128,18 +145,6 @@ jobs:
         uses: alehechka/download-tartifact@v2
         with:
           name: dev-game-build
-
-      - name: debug
-        run: ls out/rojo
-
-      - id: check-secret
-        if: ${{ env.EXISTS }}
-        run: |
-          echo $env:EXISTS
-          echo "TEST_RUNNER_OPEN_CLOUD_API_KEY not defined"
-          exit 1
-        env:
-          EXISTS: ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }} == null || ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }} == ""
 
       - name: Run Tests
         run: python3 scripts/python/upload_and_run_tasks.py out/rojo/game.rbxl tests/run.luau -o out/tests.txt
