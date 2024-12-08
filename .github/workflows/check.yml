@@ -97,6 +97,9 @@ jobs:
       - name: Checkout your Git repo
         uses: actions/checkout@v2
 
+      - name: debug
+        run: ls
+
       - name: Download game build
         uses: alehechka/download-tartifact@v2
         with:
