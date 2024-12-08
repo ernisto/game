@@ -11,11 +11,30 @@ on:
   push:
 
 jobs:
-  build:
-    uses: ./.github/workflows/build.yml
+  build-dev-game:
+    runs-on: Windows-Latest
+    steps:
+      - name: Checkout git files
+        uses: actions/checkout@v2
+
+      - name: Setup Aftman Tools
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          cache: true
+
+      - name: Build dev game
+        run: scripts/dev-build.cmd
+
+      - name: Upload dev game build
+        uses: alehechka/upload-tartifact@v2
+        with:
+          name: dev-game-build
+          path: out/rojo/game.rbxl
 
   lint-code:
     runs-on: windows-latest
+    needs: build-dev-game
     steps:
       - name: Checkout your Git repo
         uses: actions/checkout@v2
@@ -26,8 +45,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           cache: true
 
+      - name: Download game build
+        uses: alehechka/download-tartifact@v2
+        with:
+          name: game-build
+
       - name: Install Wally Modules
-        run: scripts/wally-install.cmd
+        run: scripts/wally-install.cmd dev.project.json
 
       - name: Download Roblox Definitions File
         run: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/refs/heads/main/scripts/globalTypes.d.luau" -OutFile "globalTypes.d.luau"
@@ -68,15 +92,15 @@ jobs:
 
   unit-tests:
     runs-on: windows-latest
-    needs: build
+    needs: build-dev-game
     steps:
       - name: Checkout your Git repo
         uses: actions/checkout@v2
 
-      - name: Download builded place
+      - name: Download game build
         uses: alehechka/download-tartifact@v2
         with:
-          name: place-build
+          name: dev-game-build
 
       - name: Run Tests
         run: python3 scripts/python/upload_and_run_tasks.py out/rojo/game.rbxl tests/run.luau -o out/tests.txt

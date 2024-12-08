@@ -7,12 +7,30 @@ on:
     branches: [master, dev]
 
 jobs:
-  build:
-    uses: ./.github/workflows/build.yml
-
-  release-github-version:
+  build-release-game:
     runs-on: Windows-Latest
-    needs: build
+    steps:
+      - name: Checkout git files
+        uses: actions/checkout@v2
+
+      - name: Setup Aftman Tools
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          cache: true
+
+      - name: Build release game
+        run: scripts/release-build.cmd
+
+      - name: Upload release game build
+        uses: alehechka/upload-tartifact@v2
+        with:
+          name: release-game-build
+          path: out/rojo/game.rbxl
+
+  deploy:
+    runs-on: Windows-Latest
+    needs: [check, build-release-game]
     permissions:
       pull-requests: write
       contents: write
@@ -25,9 +43,10 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Download release game build
         uses: alehechka/download-tartifact@v2
         with:
-          name: place-build
+          name: release-game-build
 
       - name: Setup node v20.8.1
         uses: actions/setup-node@v2
