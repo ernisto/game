@@ -17,18 +17,18 @@ def read_file(file_path):
 
 def upload_place(binary_path, universe_id, place_id, do_publish=False):
     print("Uploading place to Roblox")
-    version_type = "Published" if do_publish else "Saved"
+    # version_type = "Published" if do_publish else "Saved"
     request_headers = {
         "x-api-key": ROBLOX_API_KEY,
         "Content-Type": "application/xml",
         "Accept": "application/json",
     }
 
-    url = f"https://apis.roblox.com/universes/v1/{universe_id}/places/{place_id}/versions?versionType={version_type}"
+    url = f"https://apis.roblox.com/cloud/v2/universes/{universe_id}/places/{place_id}"
 
     buffer = read_file(binary_path)
     req = urllib.request.Request(
-        url, data=buffer, headers=request_headers, method="POST"
+        url, data=buffer, headers=request_headers, method="PATCH"
     )
 
     with urllib.request.urlopen(req) as response:
