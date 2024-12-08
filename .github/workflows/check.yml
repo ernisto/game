@@ -11,6 +11,33 @@ on:
   push:
 
 jobs:
+  check-format:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout your Git repo
+        uses: actions/checkout@v2
+
+      - name: Check Format [Source code]
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.20.0
+          args: --config-path stylua.toml --check src
+
+      - name: Check Format [Story books]
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.20.0
+          args: --config-path stylua.toml --check stories
+
+      - name: Check Format [Unit tests]
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.20.0
+          args: --config-path stylua.toml --check tests
+
   build-dev-game:
     runs-on: Windows-Latest
     steps:
@@ -62,33 +89,6 @@ jobs:
         run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc --ignore **/ServerPackages/** --ignore **/DevPackages/** --ignore **/Packages/** --ignore **/node_modules/** --defs globalTypes.d.luau stories
       - name: Lint source code
         run: luau-lsp analyze --sourcemap sourcemap.json --base-luaurc .luaurc --ignore **/ServerPackages/** --ignore **/DevPackages/** --ignore **/Packages/** --ignore **/node_modules/** --defs globalTypes.d.luau src
-
-  check-format:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout your Git repo
-        uses: actions/checkout@v2
-
-      - name: Check Format [Source code]
-        uses: JohnnyMorganz/stylua-action@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: 0.20.0
-          args: --config-path stylua.toml --check src
-
-      - name: Check Format [Story books]
-        uses: JohnnyMorganz/stylua-action@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: 0.20.0
-          args: --config-path stylua.toml --check stories
-
-      - name: Check Format [Unit tests]
-        uses: JohnnyMorganz/stylua-action@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: 0.20.0
-          args: --config-path stylua.toml --check tests
 
   unit-tests:
     runs-on: windows-latest
