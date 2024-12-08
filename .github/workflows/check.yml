@@ -7,7 +7,9 @@ concurrency:
 on:
   workflow_dispatch:
   pull_request:
+    branches-ignore: [master, dev]
   push:
+    branches-ignore: [master, dev]
   workflow_call:
     secrets:
       TEST_RUNNER_OPEN_CLOUD_API_KEY:
