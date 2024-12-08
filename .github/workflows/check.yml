@@ -84,7 +84,7 @@ jobs:
         run: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/refs/heads/main/scripts/globalTypes.d.luau" -OutFile "globalTypes.d.luau"
 
       - name: Lint unit tests
-        run: >
+        run: >-
           luau-lsp analyze tests
             --sourcemap sourcemap.json
             --base-luaurc .luaurc
@@ -96,7 +96,7 @@ jobs:
             --defs globals/testez.d.luau
 
       - name: Lint story books
-        run: >
+        run: >-
           luau-lsp analyze stories
             --sourcemap sourcemap.json
             --base-luaurc .luaurc
@@ -107,7 +107,7 @@ jobs:
             --defs globalTypes.d.luau
 
       - name: Lint source code
-        run: >
+        run: >-
           luau-lsp analyze src
             --sourcemap sourcemap.json
             --base-luaurc .luaurc
