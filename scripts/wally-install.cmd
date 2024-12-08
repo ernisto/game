@@ -4,6 +4,7 @@ mkdir DevPackages &
 mkdir ServerPackages &
 wally-patch-package &
 
+mkdir out\remotes &
 rojo sourcemap %1 -o sourcemap.json --include-non-scripts
 
 wally-package-types --sourcemap sourcemap.json Packages
