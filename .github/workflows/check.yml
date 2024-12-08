@@ -10,7 +10,7 @@ on:
   push:
   workflow_call:
     secrets:
-      TEST_RUNNER_OPEN_CLOUD_ROBLOX_API:
+      TEST_RUNNER_OPEN_CLOUD_API_KEY:
         required: true
 
 jobs:
