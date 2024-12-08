@@ -73,11 +73,3 @@ jobs:
           MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
           MANTLE_OPEN_CLOUD_API_KEY: ${{ secrets.MANTLE_OPEN_CLOUD_API_KEY }}
           MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}
-
-      - name: Shutdown Roblox Servers
-        if: ${{ vars.SHUTDOWN_WHEN_DEPLOY }}
-        run: >
-          curl -L -X POST 'https://apis.roblox.com/cloud/v2/universes/{universe}:restartServers'
-            -H 'x-api-key: {your-api-key}'
-            -H 'Content-Type: application/json'
-            --data '{}'

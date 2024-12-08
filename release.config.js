@@ -14,7 +14,7 @@ const config = {
         }],
         ["@semantic-release/exec", {
             prepareCmd: "powershell scripts/release-build ${nextRelease.version}",
-            publishCmd: "mantle deploy"
+            publishCmd: "powershell scripts/deploy ${nextRelease.version}"
         }]
     ]
 }
