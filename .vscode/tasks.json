@@ -4,6 +4,17 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "build:blink watch",
+            "type": "shell",
+            "command": "blink src/remotes/init -w",
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^error: (.*)",
+                    "message": 1
+                }
+            }
+        },
+        {
             "label": "sourcemap watch",
             "type": "shell",
             "command": "rojo-sourcemap dev.project.json -o sourcemap.json --include-non-scripts --watch",
