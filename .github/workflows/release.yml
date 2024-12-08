@@ -9,6 +9,7 @@ on:
 jobs:
   check:
     uses: ./.github/workflows/check.yml
+
   build-release-game:
     runs-on: Windows-Latest
     steps:
@@ -74,8 +75,8 @@ jobs:
 
       - name: Shutdown Roblox Servers
         if: ${{ vars.SHUTDOWN_WHEN_DEPLOY }}
-        run: |
-          curl -L -X POST 'https://apis.roblox.com/cloud/v2/universes/{universe}:restartServers' \
-            -H 'x-api-key: {your-api-key}' \
-            -H 'Content-Type: application/json' \
+        run: >
+          curl -L -X POST 'https://apis.roblox.com/cloud/v2/universes/{universe}:restartServers'
+            -H 'x-api-key: {your-api-key}'
+            -H 'Content-Type: application/json'
             --data '{}'
