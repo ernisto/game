@@ -38,9 +38,9 @@
             }
         },
         {
-            "label": "rojo-build",
+            "label": "install:packages",
             "type": "shell",
-            "command": "scripts/rojo-build",
+            "command": "scripts/wally-install game.project.json",
             "problemMatcher": {
                 "pattern": {
                     "regexp": "^error: (.*)",
