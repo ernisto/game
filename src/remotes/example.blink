@@ -7,5 +7,5 @@ event MyFirstEvent {
 function MyFirstFunction {
     yield: Promise,
     data: string,
-    return: number
+    return: f32
 }
