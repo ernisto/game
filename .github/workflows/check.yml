@@ -1,4 +1,4 @@
-name: Static/Runtime Analysis
+name: Check
 
 on:
   workflow_dispatch:
