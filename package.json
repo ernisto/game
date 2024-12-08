@@ -7,7 +7,13 @@
     "test": "tests"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "stylua .",
+    "format:check": "stylua . --check",
+    "clean": "rm -rf node_modules out Packages DevPackages ServerPackages",
+    "build:dev": "powershell scripts/dev-build",
+    "build": "powershell scripts/release-build",
+    "test": "powershell scripts/run-tests"
   },
   "repository": {
     "type": "git",
