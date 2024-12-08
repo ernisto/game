@@ -132,6 +132,12 @@ jobs:
       - name: debug
         run: ls out/rojo
 
+      - id: check-secret
+        if: ${{ env.EXISTS }}
+        run: exit 1
+        env:
+          EXISTS: ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }} == null || ${{ secrets.TEST_RUNNER_OPEN_CLOUD_API_KEY }} == ""
+
       - name: Run Tests
         run: python3 scripts/python/upload_and_run_tasks.py out/rojo/game.rbxl tests/run.luau -o out/tests.txt
         env:
