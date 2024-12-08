@@ -97,13 +97,13 @@ jobs:
       - name: Checkout your Git repo
         uses: actions/checkout@v2
 
-      - name: debug
-        run: ls
-
       - name: Download game build
         uses: alehechka/download-tartifact@v2
         with:
           name: dev-game-build
+
+      - name: debug
+        run: ls out/rojo
 
       - name: Run Tests
         run: python3 scripts/python/upload_and_run_tasks.py out/rojo/game.rbxl tests/run.luau -o out/tests.txt
