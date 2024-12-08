@@ -5,6 +5,8 @@ mkdir ServerPackages &
 wally-patch-package &
 
 mkdir out\remotes &
+blink src/remotes/init --yes &
+
 rojo sourcemap %1 -o sourcemap.json --include-non-scripts
 
 wally-package-types --sourcemap sourcemap.json Packages
