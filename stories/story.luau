@@ -4,7 +4,7 @@ local uilabs = require(TestService.Packages.uilabs)
 local function story<Controls>(controls: Controls, test: (target: Instance, controls: Controls) -> (() -> ())?)
 	return {
 		controls = controls,
-		story = function(env)
+		render = function(env)
 			local target = env.target
 			local destroy: () -> ()?, thread
 
