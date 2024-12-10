@@ -17,7 +17,7 @@
         {
             "label": "sourcemap watch",
             "type": "shell",
-            "command": "rojo-sourcemap dev.project.json -o sourcemap.json --include-non-scripts --watch",
+            "command": "rojo sourcemap dev.project.json -o sourcemap.json --include-non-scripts --watch",
             "problemMatcher": {
                 "pattern": {
                     "regexp": "^error: (.*)",
